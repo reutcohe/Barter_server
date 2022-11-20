@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\פרויקט בארטר\\Barters\\BL\\BL.csproj": {}
+    "C:\\Users\\User\\Source\\Repos\\Barter_server\\BL\\BL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\פרויקט בארטר\\Barters\\BL\\BL.csproj": {
+    "C:\\Users\\User\\Source\\Repos\\Barter_server\\BL\\BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\פרויקט בארטר\\Barters\\BL\\BL.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\Barter_server\\BL\\BL.csproj",
         "projectName": "BL",
-        "projectPath": "C:\\Users\\User\\Desktop\\פרויקט בארטר\\Barters\\BL\\BL.csproj",
+        "projectPath": "C:\\Users\\User\\Source\\Repos\\Barter_server\\BL\\BL.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\פרויקט בארטר\\Barters\\BL\\obj\\",
+        "outputPath": "C:\\Users\\User\\Source\\Repos\\Barter_server\\BL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

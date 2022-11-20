@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Gs+xvSDtN1qliFTDIrUGyMlLkHqRZUNBWlfiRrthUkyS+JQ+5uBrpoXXE0uW+3A+XWv8ZMJ3ESJnEVGmvH2Ccg==",
+  "dgSpecHash": "B5SCaGrQoKtzv+HwbCrzRYFhapCpqPqRGX3j4GsWWCma+7Tj6WExAs5vgpT7JXgGg7VokPjrq3v1h6DdMB5Q3Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\פרויקט בארטר\\Barters\\DAL\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\User\\Source\\Repos\\Barter_server\\DAL\\DAL.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
