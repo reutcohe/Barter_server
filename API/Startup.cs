@@ -1,3 +1,5 @@
+using BL;
+using DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,13 @@ namespace API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
+
+
+            services.AddScoped<ICategoryDAL, CategoryDAL>();
+            services.AddScoped<ICategoryBL, CategoryBL>();
+            services.AddScoped<IUserBL, UserBL>();
+            services.AddScoped<IUserDAL, UserDAL>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
