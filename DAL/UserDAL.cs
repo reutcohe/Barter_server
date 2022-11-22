@@ -47,20 +47,21 @@ namespace DAL
                 bartersDBContext.SaveChanges();
                 return true;
             }
-            catch(Exception ex) {
-                throw ex;   
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
         public bool DeleteUser(int id)
         {
             try
             {
-                User user = bartersDBContext.Users.SingleOrDefault(x => x.Id == id); 
+                User user = bartersDBContext.Users.SingleOrDefault(x => x.Id == id);
                 bartersDBContext.Users.Remove(user);
                 bartersDBContext.SaveChanges();
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return false;
             }
@@ -74,8 +75,8 @@ namespace DAL
                 bartersDBContext.SaveChanges();
                 return true;
             }
-            catch(Exception ex)
-            { 
+            catch (Exception ex)
+            {
 
                 return false;
             }

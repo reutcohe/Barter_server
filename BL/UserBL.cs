@@ -33,7 +33,7 @@ namespace BL
         }
         public UserDTO GetUserById(int id)
         {
-            
+
             try
             {
                 var User = _userDal.GetUserById(id);
@@ -45,5 +45,24 @@ namespace BL
             }
         }
 
+        public bool AddUser(UserDTO user)
+        {
+            return _userDal.AddUser(mapper.Map<UserDTO, User>(user));
+
+        }
+        public bool DeleteUser(int id)
+        {
+            return _userDal.DeleteUser(id);
+
+        }
+
+        public bool UpdateUser(int id, UserDTO user)
+        {
+            User user1 = mapper.Map<UserDTO, User>(user);
+            return _userDal.UpdateUsers(id, user1);
+        }
     }
 }
+
+
+
