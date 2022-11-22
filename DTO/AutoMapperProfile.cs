@@ -12,6 +12,8 @@ namespace DTO
             CreateMap<Category,CategoryDTO>();
             CreateMap<User, UserDTO>();
             CreateMap< UserDTO, User>();
+            CreateMap<Massage, MassageDTO>();
+            CreateMap<MassageDTO, Massage>();
         }
     }
 }

@@ -40,6 +40,10 @@ namespace API
             services.AddScoped<ICategoryBL, CategoryBL>();
             services.AddScoped<IUserBL, UserBL>();
             services.AddScoped<IUserDAL, UserDAL>();
+            services.AddScoped<IMassageDAL, MassageDAL>();
+            services.AddScoped<IMassageBL, MassageBL>();
+
+
 
         }
 

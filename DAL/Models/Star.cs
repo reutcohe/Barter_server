@@ -13,6 +13,7 @@ namespace DAL.Models
         public DateTime? DateGiven { get; set; }
         public DateTime? DateReceived { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User UserIdGivenNavigation { get; set; }
+        public virtual User UserIdReceivedNavigation { get; set; }
     }
 }

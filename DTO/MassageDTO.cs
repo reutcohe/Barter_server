@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-#nullable disable
-
-namespace DAL.Models
+namespace DTO
 {
-    public partial class Massage
+    public class MassageDTO
     {
         public int Id { get; set; }
         public int? UsreIdReceived { get; set; }
@@ -13,7 +14,5 @@ namespace DAL.Models
         public DateTime? MassageDate { get; set; }
         public string MassageContent { get; set; }
 
-        public virtual User UserIdGivenNavigation { get; set; }
-        public virtual User UsreIdReceivedNavigation { get; set; }
     }
 }
