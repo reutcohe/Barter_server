@@ -8,5 +8,9 @@ namespace DAL
 
         List<User> GetAllUsers();
         User GetUserById(int id);
+
+
+
+
     }
 }
