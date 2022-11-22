@@ -16,7 +16,7 @@ namespace DAL.Models
         public int? CategoryIdNeed { get; set; }
         public int? UserIdReceived { get; set; }
 
-        public virtual Category CategoryIdNeedNavigation { get; set; }
         public virtual User UserIdPublishNavigation { get; set; }
+        public virtual User UserIdReceivedNavigation { get; set; }
     }
 }

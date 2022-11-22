@@ -15,5 +15,6 @@ namespace DAL.Models
         public string OpinionContent { get; set; }
 
         public virtual User Drage { get; set; }
+        public virtual User Graded { get; set; }
     }
 }

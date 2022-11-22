@@ -10,8 +10,15 @@ namespace DAL.Models
         public User()
         {
             CategoryUsers = new HashSet<CategoryUser>();
-            Opinions = new HashSet<Opinion>();
-            Publications = new HashSet<Publication>();
+            CustomerInquiries = new HashSet<CustomerInquiry>();
+            MassageUserIdGivenNavigations = new HashSet<Massage>();
+            MassageUsreIdReceivedNavigations = new HashSet<Massage>();
+            OpinionDrages = new HashSet<Opinion>();
+            OpinionGradeds = new HashSet<Opinion>();
+            PublicationUserIdPublishNavigations = new HashSet<Publication>();
+            PublicationUserIdReceivedNavigations = new HashSet<Publication>();
+            StarUserIdGivenNavigations = new HashSet<Star>();
+            StarUserIdReceivedNavigations = new HashSet<Star>();
         }
 
         public int Id { get; set; }
@@ -23,11 +30,15 @@ namespace DAL.Models
         public int AllowingAccess { get; set; }
 
         public virtual City City { get; set; }
-        public virtual Massage Id1 { get; set; }
-        public virtual Star Id2 { get; set; }
-        public virtual CustomerInquiry IdNavigation { get; set; }
         public virtual ICollection<CategoryUser> CategoryUsers { get; set; }
-        public virtual ICollection<Opinion> Opinions { get; set; }
-        public virtual ICollection<Publication> Publications { get; set; }
+        public virtual ICollection<CustomerInquiry> CustomerInquiries { get; set; }
+        public virtual ICollection<Massage> MassageUserIdGivenNavigations { get; set; }
+        public virtual ICollection<Massage> MassageUsreIdReceivedNavigations { get; set; }
+        public virtual ICollection<Opinion> OpinionDrages { get; set; }
+        public virtual ICollection<Opinion> OpinionGradeds { get; set; }
+        public virtual ICollection<Publication> PublicationUserIdPublishNavigations { get; set; }
+        public virtual ICollection<Publication> PublicationUserIdReceivedNavigations { get; set; }
+        public virtual ICollection<Star> StarUserIdGivenNavigations { get; set; }
+        public virtual ICollection<Star> StarUserIdReceivedNavigations { get; set; }
     }
 }

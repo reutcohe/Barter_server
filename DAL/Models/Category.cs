@@ -10,7 +10,6 @@ namespace DAL.Models
         public Category()
         {
             CategoryUsers = new HashSet<CategoryUser>();
-            Publications = new HashSet<Publication>();
         }
 
         public int Id { get; set; }
@@ -19,6 +18,5 @@ namespace DAL.Models
         public string SmallPicture { get; set; }
 
         public virtual ICollection<CategoryUser> CategoryUsers { get; set; }
-        public virtual ICollection<Publication> Publications { get; set; }
     }
 }

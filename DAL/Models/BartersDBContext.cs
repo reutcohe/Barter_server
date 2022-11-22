@@ -32,7 +32,7 @@ namespace DAL.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\ProjectModels;Database=BartersDB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server= (localdb)\\ProjectModels;Database= BartersDB;Trusted_Connection=True;");
             }
         }
 
@@ -49,29 +49,44 @@ namespace DAL.Models
 
             modelBuilder.Entity<CategoryUser>(entity =>
             {
-                entity.ToTable("Category- User");
+                entity.ToTable("Category_User");
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.HasOne(d => d.Categoty)
                     .WithMany(p => p.CategoryUsers)
                     .HasForeignKey(d => d.CategotyId)
-                    .HasConstraintName("FK_Category- User_Category");
+                    .HasConstraintName("FK__Category___Categ__656C112C");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.CategoryUsers)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK_Category- User_Users");
+                    .HasConstraintName("FK__Category___UserI__6477ECF3");
             });
 
             modelBuilder.Entity<CustomerInquiry>(entity =>
             {
                 entity.Property(e => e.TurnDate).HasColumnType("date");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.CustomerInquiries)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK__CustomerI__UserI__68487DD7");
             });
 
             modelBuilder.Entity<Massage>(entity =>
             {
                 entity.Property(e => e.MassageDate).HasColumnType("date");
+
+                entity.HasOne(d => d.UserIdGivenNavigation)
+                    .WithMany(p => p.MassageUserIdGivenNavigations)
+                    .HasForeignKey(d => d.UserIdGiven)
+                    .HasConstraintName("FK__Massages__UserId__5CD6CB2B");
+
+                entity.HasOne(d => d.UsreIdReceivedNavigation)
+                    .WithMany(p => p.MassageUsreIdReceivedNavigations)
+                    .HasForeignKey(d => d.UsreIdReceived)
+                    .HasConstraintName("FK__Massages__UsreId__5BE2A6F2");
             });
 
             modelBuilder.Entity<Opinion>(entity =>
@@ -81,9 +96,14 @@ namespace DAL.Models
                 entity.Property(e => e.DateAdded).HasColumnType("date");
 
                 entity.HasOne(d => d.Drage)
-                    .WithMany(p => p.Opinions)
+                    .WithMany(p => p.OpinionDrages)
                     .HasForeignKey(d => d.DrageId)
-                    .HasConstraintName("FK_Opinion_Users");
+                    .HasConstraintName("FK__Opinion__DrageId__5FB337D6");
+
+                entity.HasOne(d => d.Graded)
+                    .WithMany(p => p.OpinionGradeds)
+                    .HasForeignKey(d => d.GradedId)
+                    .HasConstraintName("FK__Opinion__GradedI__60A75C0F");
             });
 
             modelBuilder.Entity<Publication>(entity =>
@@ -94,15 +114,15 @@ namespace DAL.Models
 
                 entity.Property(e => e.PublicationDate).HasColumnType("date");
 
-                entity.HasOne(d => d.CategoryIdNeedNavigation)
-                    .WithMany(p => p.Publications)
-                    .HasForeignKey(d => d.CategoryIdNeed)
-                    .HasConstraintName("FK_Publication_Category");
-
                 entity.HasOne(d => d.UserIdPublishNavigation)
-                    .WithMany(p => p.Publications)
+                    .WithMany(p => p.PublicationUserIdPublishNavigations)
                     .HasForeignKey(d => d.UserIdPublish)
-                    .HasConstraintName("FK_Publication_Users");
+                    .HasConstraintName("FK__Publicati__UserI__5DCAEF64");
+
+                entity.HasOne(d => d.UserIdReceivedNavigation)
+                    .WithMany(p => p.PublicationUserIdReceivedNavigations)
+                    .HasForeignKey(d => d.UserIdReceived)
+                    .HasConstraintName("FK__Publicati__UserI__5EBF139D");
             });
 
             modelBuilder.Entity<Star>(entity =>
@@ -110,34 +130,24 @@ namespace DAL.Models
                 entity.Property(e => e.DateGiven).HasColumnType("date");
 
                 entity.Property(e => e.DateReceived).HasColumnType("date");
+
+                entity.HasOne(d => d.UserIdGivenNavigation)
+                    .WithMany(p => p.StarUserIdGivenNavigations)
+                    .HasForeignKey(d => d.UserIdGiven)
+                    .HasConstraintName("FK__Stars__UserIdGiv__619B8048");
+
+                entity.HasOne(d => d.UserIdReceivedNavigation)
+                    .WithMany(p => p.StarUserIdReceivedNavigations)
+                    .HasForeignKey(d => d.UserIdReceived)
+                    .HasConstraintName("FK__Stars__UserIdRec__628FA481");
             });
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedOnAdd();
-
                 entity.HasOne(d => d.City)
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.CityId)
-                    .HasConstraintName("FK_Users_Cities");
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.User)
-                    .HasForeignKey<User>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Users_CustomerInquiries");
-
-                entity.HasOne(d => d.Id1)
-                    .WithOne(p => p.User)
-                    .HasForeignKey<User>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Users_Massages");
-
-                entity.HasOne(d => d.Id2)
-                    .WithOne(p => p.User)
-                    .HasForeignKey<User>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Users_Stars");
+                    .HasConstraintName("FK__Users__CityId__5AEE82B9");
             });
 
             OnModelCreatingPartial(modelBuilder);
