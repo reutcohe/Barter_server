@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
-using DTO;
+
+
 
 namespace BL
 {
@@ -26,7 +26,7 @@ namespace BL
             });
             _mapper = config.CreateMapper();
         }
-        public PublicationDTO GetPublicationById
+        public PublicationDTO GetPublicationById;
     }
 }
 //public List<UserDTO> GetAllUsers()
